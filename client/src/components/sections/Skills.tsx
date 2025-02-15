@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { SiReact, SiTailwindcss, SiNodedotjs, SiSupabase, SiGit, SiFigma, SiPython, SiOpenjdk, SiCplusplus, SiMysql, SiHtml5, SiCss3, SiJavascript, SiTypescript } from "react-icons/si";
+import { SiReact, SiTailwindcss, SiNodedotjs, SiSupabase, SiGit, SiFigma, SiPython, SiOpenjdk, SiCplusplus, SiMysql, SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
 import SkillCard from "../shared/SkillCard";
 import SectionTitle from "../shared/SectionTitle";
-import { Card, CardContent } from "@/components/ui/card";
 
 const technicalSkills = [
   { name: "React", icon: SiReact, color: "#61DAFB" },
@@ -17,16 +16,7 @@ const technicalSkills = [
   { name: "MySQL", icon: SiMysql, color: "#4479A1" },
   { name: "HTML", icon: SiHtml5, color: "#E34F26" },
   { name: "CSS", icon: SiCss3, color: "#1572B6" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" }
-];
-
-const softSkills = [
-  "Problem Solving",
-  "Quick Learner",
-  "Conflict Resolution",
-  "Team Work",
-  "Leadership"
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" }
 ];
 
 export default function Skills() {
@@ -36,77 +26,36 @@ export default function Skills() {
         <SectionTitle>Skills</SectionTitle>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-12 mt-12"
+          className="mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {/* Technical Skills */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Technical Skills</h3>
-            <motion.div 
-              className="grid grid-cols-2 sm:grid-cols-3 gap-4"
-              variants={{
-                hidden: { opacity: 0 },
-                show: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1
-                  }
+          <h3 className="text-xl font-semibold mb-4">Technical Skills</h3>
+          <motion.div 
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1
                 }
-              }}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
-              {technicalSkills.map((skill, index) => (
-                <SkillCard
-                  key={index}
-                  name={skill.name}
-                  Icon={skill.icon}
-                  color={skill.color}
-                />
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Soft Skills */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Soft Skills</h3>
-            <Card>
-              <CardContent className="p-6">
-                <motion.ul 
-                  className="grid grid-cols-2 gap-3"
-                  variants={{
-                    hidden: { opacity: 0 },
-                    show: {
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.1
-                      }
-                    }
-                  }}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                >
-                  {softSkills.map((skill, index) => (
-                    <motion.li 
-                      key={index}
-                      variants={{
-                        hidden: { opacity: 0, x: -20 },
-                        show: { opacity: 1, x: 0 }
-                      }}
-                      className="flex items-center gap-2 text-muted-foreground"
-                    >
-                      <span className="w-2 h-2 bg-primary rounded-full" />
-                      {skill}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </CardContent>
-            </Card>
-          </div>
+              }
+            }}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {technicalSkills.map((skill, index) => (
+              <SkillCard
+                key={index}
+                name={skill.name}
+                Icon={skill.icon}
+                color={skill.color}
+              />
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -23,8 +23,8 @@ export default function About() {
             <div>
               <h3 className="text-xl font-semibold mb-3">Education</h3>
               <p className="text-muted-foreground">
+                Currently a final year student at JSS Academy of Technical Education, Noida<br />
                 B.Tech in Computer Science and Engineering<br />
-                JSS Academy of Technical Education, Noida<br />
                 Expected Graduation: 2025
               </p>
             </div>
