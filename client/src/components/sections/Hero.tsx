@@ -2,7 +2,28 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FileDown, ArrowDown } from "lucide-react";
 
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.1,
+      staggerChildren: 0.05
+    }
+  }
+};
+
+const charVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0
+  }
+};
+
 export default function Hero() {
+  const name = "I am Riya Jain";
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -11,38 +32,42 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background z-0" />
-      
+
       {/* Content */}
       <div className="container mx-auto px-4 z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <motion.h1 
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-            initial={{ scale: 0.5 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
           >
-            I am Riya Jain
+            {name.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={charVariants}
+                className="inline-block"
+                style={{ opacity: char === " " ? 0 : 1 }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
           </motion.h1>
-          
+
           <motion.p 
             className="text-lg md:text-xl text-muted-foreground mb-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
           >
             Full Stack Developer | React Enthusiast | Passionate Problem Solver
           </motion.p>
 
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
           >
             <Button 
               size="lg"
@@ -52,7 +77,7 @@ export default function Hero() {
               View Projects
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
-            
+
             <Button 
               size="lg"
               variant="outline"
@@ -63,7 +88,7 @@ export default function Hero() {
               <FileDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
