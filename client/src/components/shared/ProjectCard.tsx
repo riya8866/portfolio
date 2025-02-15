@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface ProjectCardProps {
+  id: string;
   title: string;
   description: string;
   technologies: string[];
   image: string;
-  github: string;
-  demo: string;
+  onClick: () => void;
 }
 
 export default function ProjectCard({
@@ -18,8 +17,7 @@ export default function ProjectCard({
   description,
   technologies,
   image,
-  github,
-  demo
+  onClick
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -28,7 +26,10 @@ export default function ProjectCard({
         show: { opacity: 1, y: 0 }
       }}
     >
-      <Card className="overflow-hidden group">
+      <Card 
+        className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all duration-300"
+        onClick={onClick}
+      >
         <CardContent className="p-0">
           <div className="relative overflow-hidden">
             <img
@@ -36,39 +37,26 @@ export default function ProjectCard({
               alt={title}
               className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <ArrowRight className="w-8 h-8 text-white transform translate-x-4 group-hover:translate-x-0 transition-transform" />
+            </div>
           </div>
-          
+
           <div className="p-6 space-y-4">
-            <h3 className="text-xl font-semibold">{title}</h3>
-            
-            <p className="text-muted-foreground">{description}</p>
-            
+            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+              {title}
+            </h3>
+
+            <p className="text-muted-foreground line-clamp-2">
+              {description}
+            </p>
+
             <div className="flex flex-wrap gap-2">
               {technologies.map((tech, index) => (
                 <Badge key={index} variant="secondary">
                   {tech}
                 </Badge>
               ))}
-            </div>
-            
-            <div className="flex gap-4">
-              <Button
-                variant="outline"
-                size="sm"
-                className="gap-2"
-                onClick={() => window.open(github, '_blank')}
-              >
-                <Github className="h-4 w-4" />
-                Code
-              </Button>
-              <Button
-                size="sm"
-                className="gap-2"
-                onClick={() => window.open(demo, '_blank')}
-              >
-                <ExternalLink className="h-4 w-4" />
-                Live Demo
-              </Button>
             </div>
           </div>
         </CardContent>
