@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { FileDown, ArrowDown } from "lucide-react";
 
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -23,70 +21,40 @@ const charVariants = {
 };
 
 export default function Hero() {
-  const name = "I am Riya Jain";
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background z-0" />
+    <section className="min-h-screen flex flex-col justify-center px-4 lg:px-8">
+      <div className="max-w-screen-xl mx-auto w-full">
+        <div className="space-y-2">
+          <motion.p 
+            className="text-primary text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Hey there! I'm-
+          </motion.p>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 z-10">
-        <div className="text-center">
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="text-5xl md:text-7xl font-bold"
             variants={textVariants}
             initial="hidden"
             animate="visible"
           >
-            {name.split("").map((char, index) => (
-              <motion.span
-                key={index}
-                variants={charVariants}
-                className="inline-block"
-                style={{ opacity: char === " " ? 0 : 1 }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
+            Riya Jain.
           </motion.h1>
 
-          <motion.p 
-            className="text-lg md:text-xl text-muted-foreground mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-          >
-            Full Stack Developer | React Enthusiast | Passionate Problem Solver
-          </motion.p>
-
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="max-w-2xl space-y-6 mt-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
+            transition={{ delay: 0.5 }}
           >
-            <Button 
-              size="lg"
-              onClick={scrollToProjects}
-              className="group"
-            >
-              View Projects
-              <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-            </Button>
+            <h2 className="text-2xl text-muted-foreground">
+              Software Engineer. A self-taught developer with an interest in Computer Science.
+            </h2>
 
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => window.open('/resume.pdf', '_blank')}
-              className="group"
-            >
-              Download Resume
-              <FileDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-            </Button>
+            <p className="text-muted-foreground">
+              Currently specializing in Frontend (React / Next.js)
+            </p>
           </motion.div>
         </div>
       </div>
