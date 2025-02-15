@@ -33,13 +33,13 @@ export default function Projects() {
         <SectionTitle>Featured Projects</SectionTitle>
 
         <motion.div
-          className="relative mt-12"
+          className="grid md:grid-cols-2 gap-8 mt-12"
           variants={{
             hidden: { opacity: 0 },
             show: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.3
+                staggerChildren: 0.2
               }
             }
           }}
@@ -47,30 +47,12 @@ export default function Projects() {
           whileInView="show"
           viewport={{ once: true }}
         >
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-border" />
-
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className={`flex items-center mb-16 ${
-                index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-              }`}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 }
-              }}
-            >
-              <div className={`w-1/2 ${index % 2 === 0 ? "pr-12" : "pl-12"}`}>
-                <ProjectCard
-                  {...project}
-                  onClick={() => setLocation(`/project/${project.id}`)}
-                />
-              </div>
-
-              {/* Timeline dot */}
-              <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2" />
-            </motion.div>
+          {projects.map((project) => (
+            <ProjectCard 
+              key={project.id} 
+              {...project} 
+              onClick={() => setLocation(`/project/${project.id}`)}
+            />
           ))}
         </motion.div>
       </div>
