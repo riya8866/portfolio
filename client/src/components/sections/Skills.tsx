@@ -1,22 +1,35 @@
 import { motion } from "framer-motion";
-import { SiReact, SiTailwindcss, SiNodedotjs, SiSupabase, SiGit, SiFigma, SiPython, SiOpenjdk, SiCplusplus, SiMysql, SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
+import {
+  SiReact,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiSupabase,
+  SiGit,
+  SiFigma,
+  SiPython,
+  SiOpenjdk,
+  SiCplusplus,
+  SiMysql,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+} from "react-icons/si";
 import SkillCard from "../shared/SkillCard";
 import SectionTitle from "../shared/SectionTitle";
 
 const technicalSkills = [
   { name: "React", icon: SiReact, color: "#61DAFB" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
-  { name: "Git", icon: SiGit, color: "#F05032" },
-  { name: "Figma", icon: SiFigma, color: "#F24E1E" },
   { name: "Python", icon: SiPython, color: "#3776AB" },
   { name: "Java", icon: SiOpenjdk, color: "#007396" },
   { name: "C++", icon: SiCplusplus, color: "#00599C" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
   { name: "MySQL", icon: SiMysql, color: "#4479A1" },
   { name: "HTML", icon: SiHtml5, color: "#E34F26" },
   { name: "CSS", icon: SiCss3, color: "#1572B6" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" }
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
 ];
 
 export default function Skills() {
@@ -31,17 +44,16 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-xl font-semibold mb-4">Technical Skills</h3>
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
             variants={{
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.1
-                }
-              }
+                  staggerChildren: 0.1,
+                },
+              },
             }}
             initial="hidden"
             whileInView="show"

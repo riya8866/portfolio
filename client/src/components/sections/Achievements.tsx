@@ -7,23 +7,27 @@ const achievements = [
   {
     icon: BookOpen,
     title: "Research Publication",
-    description: "Published a review paper on Integrated Pothole Detection and Damage Assessment Model"
+    description:
+      "Published a review paper on Integrated Pothole Detection and Damage Assessment Model",
   },
   {
     icon: Award,
     title: "IIT Delhi Selection",
-    description: "Selected among 20 students from 500 applicants for Graphics & Vision Summer School 2024"
+    description:
+      "Selected among 20 students from 500 applicants for Graphics & Vision Summer School 2024",
   },
   {
     icon: Code,
-    title: "Google Summer of Code",
-    description: "Won custom t-shirts as prize in Google Summer of Code 2018"
+    title: "Hackathons",
+    description:
+      "Participated in online hackathons in college like Shebuilds, PowerToFly Diversity Hackathon 2022 ",
   },
   {
     icon: Users,
     title: "Leadership Role",
-    description: "Database Head at Cyber Crew Club and Cultural Head of house in school"
-  }
+    description:
+      "Database Head at Cyber Crew Club and Cultural Head of house in school",
+  },
 ];
 
 export default function Achievements() {
@@ -39,9 +43,9 @@ export default function Achievements() {
             show: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.2
-              }
-            }
+                staggerChildren: 0.2,
+              },
+            },
           }}
           initial="hidden"
           whileInView="show"
@@ -52,7 +56,7 @@ export default function Achievements() {
               key={index}
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 }
+                show: { opacity: 1, y: 0 },
               }}
             >
               <Card className="h-full hover:shadow-lg transition-shadow">
@@ -60,8 +64,12 @@ export default function Achievements() {
                   <div className="flex items-start gap-4">
                     <achievement.icon className="h-8 w-8 text-primary" />
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">{achievement.title}</h3>
-                      <p className="text-muted-foreground">{achievement.description}</p>
+                      <h3 className="text-lg font-semibold mb-2">
+                        {achievement.title}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {achievement.description}
+                      </p>
                     </div>
                   </div>
                 </CardContent>

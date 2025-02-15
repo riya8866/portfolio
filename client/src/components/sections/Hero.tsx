@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { FileDown, ArrowDown } from "lucide-react";
 
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -7,54 +9,85 @@ const textVariants = {
     y: 0,
     transition: {
       duration: 0.1,
-      staggerChildren: 0.05
-    }
-  }
+      staggerChildren: 0.05,
+    },
+  },
 };
 
 const charVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
-    y: 0
-  }
+    y: 0,
+  },
 };
 
 export default function Hero() {
-  return (
-    <section className="min-h-screen flex flex-col justify-center px-4 lg:px-8">
-      <div className="max-w-screen-xl mx-auto w-full">
-        <div className="space-y-2">
-          <motion.p 
-            className="text-primary text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            Hey there! I'm-
-          </motion.p>
+  const name = "I am Riya Jain";
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
 
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold"
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background z-0" />
+
+      {/* Content */}
+      <div className="container mx-auto px-4 z-10">
+        <div className="text-center">
+          <motion.h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             variants={textVariants}
             initial="hidden"
             animate="visible"
           >
-            Riya Jain.
+            {name.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={charVariants}
+                className="inline-block"
+                style={{ opacity: char === " " ? 0 : 1 }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
           </motion.h1>
 
-          <motion.div 
-            className="max-w-2xl space-y-6 mt-6"
+          <motion.p
+            className="text-lg md:text-xl text-muted-foreground mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 1, duration: 0.8 }}
           >
-            <h2 className="text-2xl text-muted-foreground">
-              Software Engineer. A self-taught developer with an interest in Computer Science.
-            </h2>
+            <b>Software Engineer</b> : A self-taught developer with an interest
+            in Computer Science.
+          </motion.p>
 
-            <p className="text-muted-foreground">
-              Currently specializing in Frontend (React / Next.js)
-            </p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
+          >
+            <Button size="lg" onClick={scrollToContact} className="group">
+              Let's Connect
+            </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() =>
+                window.open(
+                  "https://docs.google.com/document/d/1YRYwf8R58M-2sb3ybUusWN4-i8i8TgJTm0A_VIQn8NE/edit?usp=sharing",
+                  "_blank"
+                )
+              }
+              className="group"
+            >
+              Download Resume
+              <FileDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+            </Button>
           </motion.div>
         </div>
       </div>

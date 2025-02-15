@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -13,7 +14,7 @@ import SectionTitle from "../shared/SectionTitle";
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters")
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -21,25 +22,40 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
   });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Here you would integrate with EmailJS or your preferred email service
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+      await emailjs.send(
+        "service_t2yc014", // Replace with your EmailJS service ID
+        "template_zwqr876", // Replace with your EmailJS template ID
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+          to_email: "riya8866@gmail.com", // Your email address
+        },
+        "vjsrG03vCy-lp8IYh" // Replace with your EmailJS public key
+      );
+
       toast({
         title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon."
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
       reset();
     } catch (error) {
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
-        variant: "destructive"
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -60,7 +76,8 @@ export default function Contact() {
           <div>
             <h3 className="text-2xl font-semibold mb-4">Let's Connect</h3>
             <p className="text-muted-foreground mb-8">
-              Feel free to reach out for collaborations or just a friendly hello!
+              Feel free to reach out for collaborations or just a friendly
+              hello!
             </p>
 
             <div className="space-y-4">
@@ -100,7 +117,9 @@ export default function Contact() {
                 className={errors.name ? "border-destructive" : ""}
               />
               {errors.name && (
-                <p className="text-sm text-destructive mt-1">{errors.name.message}</p>
+                <p className="text-sm text-destructive mt-1">
+                  {errors.name.message}
+                </p>
               )}
             </div>
 
@@ -112,7 +131,9 @@ export default function Contact() {
                 className={errors.email ? "border-destructive" : ""}
               />
               {errors.email && (
-                <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
+                <p className="text-sm text-destructive mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
@@ -124,7 +145,9 @@ export default function Contact() {
                 className={errors.message ? "border-destructive" : ""}
               />
               {errors.message && (
-                <p className="text-sm text-destructive mt-1">{errors.message.message}</p>
+                <p className="text-sm text-destructive mt-1">
+                  {errors.message.message}
+                </p>
               )}
             </div>
 
