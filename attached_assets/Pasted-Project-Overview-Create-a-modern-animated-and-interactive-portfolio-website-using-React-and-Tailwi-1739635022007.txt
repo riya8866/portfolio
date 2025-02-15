@@ -1,0 +1,66 @@
+Project Overview
+Create a modern, animated, and interactive portfolio website using React and Tailwind CSS to showcase the skills, projects, and achievements of Riya Jain, a passionate full-stack developer skilled in React, Tailwind CSS, and Supabase.
+
+The website should include:
+✅ A dynamic landing page with a large animated "I am Riya Jain" in the center.
+✅ Project showcase with a creative, interactive section (e.g., 3D cards, timeline, or a live preview of projects).
+✅ Minimalist, clean UI with smooth animations and responsiveness.
+✅ Downloadable resume, social media links, and a contact form for recruiters.
+
+Website Structure & Features
+1️⃣ Home Page (Hero Section)
+A dark-themed, elegant UI with a large, animated "I am Riya Jain" in the center.
+Use Framer Motion for smooth entrance animations.
+Background effects (e.g., gradient waves, particle animation, or subtle glow).
+A brief tagline below the name:
+"Full Stack Developer | React Enthusiast | Passionate Problem Solver"
+Call-to-Action (CTA) buttons:
+"View Projects" → Scrolls down to the Projects section.
+"Download Resume" → Downloads the resume PDF.
+2️⃣ About Section
+A short bio about Riya Jain, taken from the resume.
+Key skills & technologies: Display icons for React, Tailwind CSS, Node.js, Supabase, Clerk, Git, Figma, etc.
+Animated skill progress bars or a tag cloud.
+3️⃣ Featured Project: Doorway – Job Portal
+🚀 Make this section unique & interactive!
+
+A floating, scrollable card that expands when hovered.
+Features of Doorway:
+✅ Built with React, Tailwind CSS, Supabase, Clerk.
+✅ Key functionalities like job posting, resume upload, authentication.
+✅ Live Demo & GitHub links.
+4️⃣ Other Projects Section
+Creative showcase (e.g., 3D rotating cards, horizontal scrolling).
+Projects to include:
+Doorway – Job Portal (Full stack project).
+YouTube Clone (Optional) – Not included in priority but can be mentioned briefly.
+5️⃣ Achievements Section
+🏆 Key highlights from resume:
+
+Published research paper on pothole detection.
+Selected for IIT Delhi Graphics & Vision Summer School.
+Google Summer of Code 2018 – Won custom t-shirts.
+Database Head at Cyber Crew Club.
+6️⃣ Contact & Social Media Section
+📩 Contact form with email validation.
+📌 Social media links:
+
+LinkedIn – www.linkedin.com/in/riya-jain-in
+GitHub – https://github.com/riya8866
+Tech Stack for Development
+Frontend: React (Next.js optional)
+Styling: Tailwind CSS + Framer Motion (for animations)
+Hosting: Vercel / Netlify
+Form Handling: EmailJS or Supabase
+Innovative Feature – "Live Code Snippets Showcase"
+💡 Idea: Embed a mini interactive playground where users can see small code snippets of projects running live!
+
+A small React code editor (like CodeSandbox embed).
+Allows recruiters to see real-time code execution.
+Final Requirements for AI Agent
+📌 Ensure the website is fully responsive (works on desktop & mobile).
+📌 Use elegant animations (Framer Motion for smooth UI).
+📌 Make the project showcase interactive & visually appealing.
+📌 Host it live on Netlify/Vercel and provide deployment steps.
+
+🔥 Expected Output: A stunning, animated, and professional portfolio that makes Riya Jain stand out!
