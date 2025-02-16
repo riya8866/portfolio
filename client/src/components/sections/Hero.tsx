@@ -78,10 +78,7 @@ export default function Hero() {
               size="lg"
               variant="outline"
               onClick={() =>
-                window.open(
-                  "/public/software_developer_riya8866@gmail.com.pdf",
-                  "_blank"
-                )
+                window.open("/software_developer_riya.pdf", "_blank")
               }
               className="group"
             >
