@@ -1,6 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import fetch from "node-fetch"; // Make sure you have the correct import
 
 const app = express();
 app.use(express.json());
@@ -47,17 +48,12 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client
   const PORT = process.env.PORT || 5000;
   server
     .listen(PORT, "0.0.0.0", () => {
@@ -67,4 +63,11 @@ app.use((req, res, next) => {
       console.error("Server error:", err);
       process.exit(1);
     });
+
+  // Add the ping logic to keep the server awake
+  setInterval(() => {
+    fetch("https://yourwebsite.onrender.com")
+      .then((res) => console.log("Pinged site to keep alive"))
+      .catch((err) => console.error("Ping failed", err));
+  }, 240000); // Every 4 minutes
 })();
