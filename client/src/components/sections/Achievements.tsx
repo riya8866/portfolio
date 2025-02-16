@@ -12,7 +12,7 @@ const achievements = [
   },
   {
     icon: Award,
-    title: "IIT Delhi Selection",
+    title: "IIT Delhi Summer School Selection",
     description:
       "Selected among 20 students from 500 applicants for Graphics & Vision Summer School 2024",
   },
