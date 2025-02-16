@@ -79,7 +79,7 @@ export default function Hero() {
               variant="outline"
               onClick={() =>
                 window.open(
-                  "https://docs.google.com/document/d/1YRYwf8R58M-2sb3ybUusWN4-i8i8TgJTm0A_VIQn8NE/edit?usp=sharing",
+                  "/public/software_developer_riya8866@gmail.com.pdf",
                   "_blank"
                 )
               }
