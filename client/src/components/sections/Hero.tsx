@@ -78,7 +78,10 @@ export default function Hero() {
               size="lg"
               variant="outline"
               onClick={() =>
-                window.open("/software_developer_riya.pdf", "_blank")
+                window.open(
+                  "https://docs.google.com/document/d/1YRYwf8R58M-2sb3ybUusWN4-i8i8TgJTm0A_VIQn8NE/edit?usp=sharing",
+                  "_blank"
+                )
               }
               className="group"
             >
