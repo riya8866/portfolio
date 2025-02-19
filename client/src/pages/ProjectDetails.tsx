@@ -15,27 +15,33 @@ const projects = {
       "Powered by Supabase for real-time database management and serverless APIs",
       "Integrated Clerk for secure authentication with social login and role-based access control",
       "Key features: Job posting, resume uploads, application tracking, and real-time notifications",
-      "Designed for scalability and performance with lazy loading and mobile-first responsiveness"
+      "Designed for scalability and performance with lazy loading and mobile-first responsiveness",
     ],
-    technologies: ["React JS", "Tailwind CSS", "Supabase", "Clerk", "Shadcn UI"],
+    technologies: [
+      "React JS",
+      "Tailwind CSS",
+      "Supabase",
+      "Clerk",
+      "Shadcn UI",
+    ],
     image: "https://placehold.co/1200x600/333/white?text=Doorway+Project",
     github: "https://github.com/riya8866/doorway",
-    demo: "#"
+    demo: "#",
   },
-  youtube: {
-    title: "YouTube Clone - Video Streaming Platform",
-    description: `A personal project to create a YouTube-like platform for video streaming, featuring core functionalities like video playback, search, and a user-friendly design.`,
+  BChat: {
+    title: "BChat - Full Stack Chatting App",
+    description: `A personal project for seamless real-time messaging with a secure and intuitive experience.`,
     features: [
-      "Built a dynamic and interactive frontend using React JS",
-      "Utilized Parcel for fast build times, code splitting, and efficient bundling",
-      "Styled the platform with Tailwind CSS for a modern, responsive, and mobile-first design",
-      "Simulated API responses to demonstrate functionality and implemented lazy loading for performance optimization"
+      "Developed a dynamic frontend using React.js and Daisy UI.",
+      "Powered by Node.js and Express.js for backend handling and real-time communication.",
+      "Integrated Socket.io for instant messaging and MongoDB for encrypted data storage.",
+      "Designed for scalability and smooth performance.",
     ],
-    technologies: ["React JS", "Parcel", "Tailwind CSS"],
-    image: "https://placehold.co/1200x600/333/white?text=YouTube+Clone",
-    github: "https://github.com/riya8866/youtube-clone",
-    demo: "#"
-  }
+    technologies: ["React JS", "Parcel", "Tailwind CSS", "MongoDB", "Express"],
+    image: "https://placehold.co/1200x600/333/white?text=BChat",
+    github: "https://github.com/riya8866/BChat",
+    demo: "#",
+  },
 };
 
 export default function ProjectDetails() {
@@ -87,7 +93,7 @@ export default function ProjectDetails() {
 
           <div className="space-y-6">
             <h1 className="text-4xl font-bold">{project.title}</h1>
-            
+
             <p className="text-lg text-muted-foreground">
               {project.description}
             </p>
@@ -112,7 +118,7 @@ export default function ProjectDetails() {
             <div className="flex gap-4">
               <Button
                 size="lg"
-                onClick={() => window.open(project.github, '_blank')}
+                onClick={() => window.open(project.github, "_blank")}
                 className="gap-2"
               >
                 <Github className="h-5 w-5" />
@@ -121,7 +127,7 @@ export default function ProjectDetails() {
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => window.open(project.demo, '_blank')}
+                onClick={() => window.open(project.demo, "_blank")}
                 className="gap-2"
               >
                 <ExternalLink className="h-5 w-5" />

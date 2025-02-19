@@ -7,21 +7,23 @@ const projects = [
   {
     id: "doorway",
     title: "Doorway - Job Portal",
-    description: "A full-stack job portal connecting job seekers and employers with features like job posting, resume uploads, and real-time notifications.",
+    description:
+      "A full-stack job portal connecting job seekers and employers with features like job posting, resume uploads, and real-time notifications.",
     technologies: ["React", "Tailwind CSS", "Supabase", "Clerk"],
     image: "https://placehold.co/600x400/333/white?text=Doorway",
     github: "https://github.com/riya8866/doorway",
-    demo: "#"
+    demo: "#",
   },
   {
-    id: "youtube",
-    title: "YouTube Clone",
-    description: "A YouTube-like platform featuring video playback, search functionality, and responsive design built with modern web technologies.",
-    technologies: ["React", "Parcel", "Tailwind CSS"],
-    image: "https://placehold.co/600x400/333/white?text=YouTube+Clone",
-    github: "https://github.com/riya8866/youtube-clone",
-    demo: "#"
-  }
+    id: "bchat",
+    title: "BChat - Full Stack Chatting App",
+    description:
+      "A personal project for seamless real-time messaging with a secure and intuitive experience.",
+    technologies: ["React JS", "Parcel", "Tailwind CSS", "MongoDB", "Express"],
+    image: "https://placehold.co/600x400/333/white?text=BChat",
+    github: "https://github.com/riya8866/BChat",
+    demo: "#",
+  },
 ];
 
 export default function Projects() {
@@ -39,18 +41,18 @@ export default function Projects() {
             show: {
               opacity: 1,
               transition: {
-                staggerChildren: 0.2
-              }
-            }
+                staggerChildren: 0.2,
+              },
+            },
           }}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
           {projects.map((project) => (
-            <ProjectCard 
-              key={project.id} 
-              {...project} 
+            <ProjectCard
+              key={project.id}
+              {...project}
               onClick={() => setLocation(`/project/${project.id}`)}
             />
           ))}
