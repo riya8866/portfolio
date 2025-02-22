@@ -22,14 +22,14 @@ const technicalSkills = [
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   { name: "Python", icon: SiPython, color: "#3776AB" },
   { name: "Java", icon: SiOpenjdk, color: "#007396" },
-  { name: "C++", icon: SiCplusplus, color: "#00599C" },
-  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
-  { name: "Git", icon: SiGit, color: "#F05032" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
   { name: "HTML", icon: SiHtml5, color: "#E34F26" },
   { name: "CSS", icon: SiCss3, color: "#1572B6" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+  { name: "C++", icon: SiCplusplus, color: "#00599C" },
+  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "Figma", icon: SiFigma, color: "#F24E1E" },
 ];
 
 export default function Skills() {
