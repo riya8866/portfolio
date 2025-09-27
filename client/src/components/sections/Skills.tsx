@@ -72,7 +72,7 @@ export default function Skills() {
       <div className="container mx-auto px-4">
         <SectionTitle>Technical Skills</SectionTitle>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-[repeat(5,1fr)] gap-4 mt-6">
           {technicalSkills.map((skill, index) => (
             <SkillCard
               key={index}
