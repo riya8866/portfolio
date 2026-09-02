@@ -79,8 +79,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            <b>Software Engineer</b> : A self-taught developer with an interest
-            in Computer Science.
+            <b>Software Engineer</b> : A self-taught developer who loves to
+            build something meaningful.
           </motion.p>
 
           {/* Buttons */}
@@ -103,7 +103,7 @@ export default function Hero() {
               onClick={() =>
                 window.open(
                   "https://docs.google.com/document/d/1awwJEAVtgHLdzOcUE0mbomB7zi5sHjN3qS5Hf5v7LOs/edit?usp=sharing",
-                  "_blank"
+                  "_blank",
                 )
               }
               className="group bg-white text-black hover:bg-gray-100 border border-gray-300 px-8 py-8 text-xl" // increased padding and text size
